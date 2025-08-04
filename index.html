@@ -245,6 +245,23 @@
             background: linear-gradient(135deg, #3498db, #2980b9);
         }
 
+        /* タブ別のアイコンカラー設定 */
+        #benefits .benefit-icon {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        #welfare .benefit-icon {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        #positions .benefit-icon {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        #contact .benefit-icon {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+
         .benefit-icon img {
             width: 40px;
             height: 40px;
@@ -264,6 +281,23 @@
             border-left: 4px solid #3498db;
         }
 
+        /* タブ別のカテゴリカラー設定 */
+        #benefits .benefit-category {
+            border-left-color: #3498db;
+        }
+
+        #welfare .benefit-category {
+            border-left-color: #e74c3c;
+        }
+
+        #positions .benefit-category {
+            border-left-color: #f39c12;
+        }
+
+        #contact .benefit-category {
+            border-left-color: #27ae60;
+        }
+
         .category-title {
             font-size: 1.5rem;
             color: #2c3e50;
@@ -271,6 +305,23 @@
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #3498db;
             font-weight: 500;
+        }
+
+        /* タブ別のカテゴリタイトルカラー設定 */
+        #benefits .category-title {
+            border-bottom-color: #3498db;
+        }
+
+        #welfare .category-title {
+            border-bottom-color: #e74c3c;
+        }
+
+        #positions .category-title {
+            border-bottom-color: #f39c12;
+        }
+
+        #contact .category-title {
+            border-bottom-color: #27ae60;
         }
 
         .benefit-items {
@@ -632,65 +683,36 @@
 
             <div id="positions" class="tab-content">
                 <h2 class="section-title">募集職種</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">あなたの経験と専門性を活かせる職種をご用意しています。</p>
                 
-                <div class="position-card">
-                    <div class="position-header">
-                        <div>
-                            <h3 class="position-title">税理士・会計士</h3>
-                            <div class="position-details">
-                                <div class="detail-item">
-                                    <div class="detail-label">勤務地</div>
-                                    <div class="detail-value">東京都渋谷区</div>
+                <div class="benefits-section">
+                    <div class="benefit-category">
+                        <h3 class="category-title">税理士・会計士</h3>
+                        <div class="benefit-items">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <img src="https://images.unsplash.com/photo-1554224154-26032cdc0d0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="税理士の業務風景">
                                 </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">雇用形態</div>
-                                    <div class="detail-value">正社員</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">給与</div>
-                                    <div class="detail-value">経験を考慮して優遇</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">勤務時間</div>
-                                    <div class="detail-value">9:00〜18:00（休憩60分）</div>
+                                <div class="benefit-content" style="text-align: left;">
+                                    <h4 class="benefit-title">正社員 | 経験を考慮して優遇</h4>
+                                    <p class="benefit-description"><strong>勤務地：</strong>東京都渋谷区<br><strong>勤務時間：</strong>9:00〜18:00（休憩60分）<br><strong>業務内容：</strong>法人税・所得税の申告書作成、税務相談、会計業務、税務調査対応など</p>
                                 </div>
                             </div>
-                            <p><strong>業務内容：</strong>法人税・所得税の申告書作成、税務相談、会計業務、税務調査対応など</p>
-                            <a href="#contact" class="apply-button">応募する</a>
-                        </div>
-                        <div class="position-image">
-                            <img src="https://images.unsplash.com/photo-1554224154-26032cdc0d0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="税理士の業務風景">
                         </div>
                     </div>
-                </div>
 
-                <div class="position-card">
-                    <div class="position-header">
-                        <div>
-                            <h3 class="position-title">会計事務スタッフ</h3>
-                            <div class="position-details">
-                                <div class="detail-item">
-                                    <div class="detail-label">勤務地</div>
-                                    <div class="detail-value">東京都渋谷区</div>
+                    <div class="benefit-category">
+                        <h3 class="category-title">会計事務スタッフ</h3>
+                        <div class="benefit-items">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="会計事務スタッフの業務風景">
                                 </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">雇用形態</div>
-                                    <div class="detail-value">正社員・パート</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">給与</div>
-                                    <div class="detail-value">時給1,200円〜（経験考慮）</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">勤務時間</div>
-                                    <div class="detail-value">9:00〜18:00（休憩60分）</div>
+                                <div class="benefit-content" style="text-align: left;">
+                                    <h4 class="benefit-title">正社員・パート | 時給1,200円〜（経験考慮）</h4>
+                                    <p class="benefit-description"><strong>勤務地：</strong>東京都渋谷区<br><strong>勤務時間：</strong>9:00〜18:00（休憩60分）<br><strong>業務内容：</strong>記帳業務、給与計算、社会保険手続き、各種届出書作成など</p>
                                 </div>
                             </div>
-                            <p><strong>業務内容：</strong>記帳業務、給与計算、社会保険手続き、各種届出書作成など</p>
-                            <a href="#contact" class="apply-button">応募する</a>
-                        </div>
-                        <div class="position-image">
-                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="会計事務スタッフの業務風景">
                         </div>
                     </div>
                 </div>
@@ -822,22 +844,22 @@
                                 <div class="benefit-content">
                                     <h4 class="benefit-title">応募方法</h4>
                                     <div class="steps-container" style="margin-top: 1rem;">
-                                        <div class="step-item" style="display: flex; align-items: flex-start; margin-bottom: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #3498db;">
-                                            <div class="step-number" style="background: #3498db; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">1</div>
+                                        <div class="step-item" style="display: flex; align-items: flex-start; margin-bottom: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #27ae60;">
+                                            <div class="step-number" style="background: #27ae60; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">1</div>
                                             <div class="step-content" style="text-align: left;">
                                                 <h5 style="margin: 0 0 0.5rem 0; color: #2c3e50; font-size: 1.1rem;">書類送付</h5>
                                                 <p style="margin: 0; color: #666; line-height: 1.5;">メールにて以下の書類を添付して送付ください<br>・履歴書<br>・職務経歴書</p>
                                             </div>
                                         </div>
-                                        <div class="step-item" style="display: flex; align-items: flex-start; margin-bottom: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #3498db;">
-                                            <div class="step-number" style="background: #3498db; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">2</div>
+                                        <div class="step-item" style="display: flex; align-items: flex-start; margin-bottom: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #27ae60;">
+                                            <div class="step-number" style="background: #27ae60; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">2</div>
                                             <div class="step-content" style="text-align: left;">
                                                 <h5 style="margin: 0 0 0.5rem 0; color: #2c3e50; font-size: 1.1rem;">書類選考</h5>
                                                 <p style="margin: 0; color: #666; line-height: 1.5;">いただいた書類を確認し、選考後メールアドレスに面接日程調整の連絡をします<br>※いただいた書類の取り扱いについて</p>
                                             </div>
                                         </div>
-                                        <div class="step-item" style="display: flex; align-items: flex-start; padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #3498db;">
-                                            <div class="step-number" style="background: #3498db; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">3</div>
+                                        <div class="step-item" style="display: flex; align-items: flex-start; padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #27ae60;">
+                                            <div class="step-number" style="background: #27ae60; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0;">3</div>
                                             <div class="step-content" style="text-align: left;">
                                                 <h5 style="margin: 0 0 0.5rem 0; color: #2c3e50; font-size: 1.1rem;">面接</h5>
                                                 <p style="margin: 0; color: #666; line-height: 1.5;">事務所にて面接を行います</p>
