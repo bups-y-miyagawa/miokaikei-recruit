@@ -1,0 +1,54 @@
+<!-- PDF.js + ズーム＆パン機能付き PDF ビューア（WordPress埋め込み用） -->
+<!-- 1. HTML部分（WordPressの固定ページやカスタムテンプレートに埋め込める） -->
+<div id="pdf-container" style="overflow: auto; width: 100%; height: 600px; border: 1px solid #ccc;">
+  <canvas id="pdf-canvas"></canvas>
+</div>
+
+<!-- 2. CDNからPDF.jsとpanzoom.jsを読み込む -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+
+<script>
+  const url = './inheritance_newsletter_503.pdf';
+  const canvas = document.getElementById('pdf-canvas');
+  const container = document.getElementById('pdf-container');
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+  pdfjsLib.getDocument(url).promise.then(pdf => {
+    pdf.getPage(1).then(page => {
+      const scale = 2.0;
+      const viewport = page.getViewport({ scale });
+      const context = canvas.getContext('2d');
+
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+
+      page.render(renderContext);
+
+      // パン＆ズーム機能を有効化
+      const panzoom = Panzoom(canvas, {
+        maxScale: 4,
+        minScale: 1,
+        contain: 'outside',
+      });
+
+      container.addEventListener('wheel', panzoom.zoomWithWheel);
+    });
+  });
+</script>
+
+<!-- 3. スマホ対応のために CSS にタッチ移動許可を追加 -->
+<style>
+  #pdf-container {
+    touch-action: pan-x pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+</style>
