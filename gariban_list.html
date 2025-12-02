@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF ダブルタップズーム＆ドラッグ</title>
+  <style>
+    #pdf-container {
+      width: 100%;
+      max-width: 600px;
+      height: 80vh;
+      margin: auto;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      position: relative;
+      touch-action: none;
+    }
+    canvas {
+      transition: transform 0.2s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">PDF ダブルタップでズーム ＆ ドラッグ</h2>
+  <div id="pdf-container">
+    <canvas id="pdf-canvas"></canvas>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+  <script>
+    const url = "https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf";
+    const canvas = document.getElementById("pdf-canvas");
+    const ctx = canvas.getContext("2d");
+    const container = document.getElementById("pdf-container");
+
+    const pdfjsLib = window["pdfjs-dist/build/pdf"];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js";
+
+    let isZoomed = false;
+    let scale = 1.5;
+    let lastTap = 0;
+
+    let offsetX = 0;
+    let offsetY = 0;
+    let startX = 0;
+    let startY = 0;
+    let isDragging = false;
+
+    // 初期表示
+    pdfjsLib.getDocument(url).promise.then(pdf => {
+      pdf.getPage(1).then(page => {
+        const viewport = page.getViewport({ scale });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        page.render({ canvasContext: ctx, viewport });
+      });
+    });
+
+    function updateTransform() {
+      canvas.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${isZoomed ? 2 : 1})`;
+      canvas.style.transformOrigin = "top left";
+    }
+
+    // ダブルタップでズーム切り替え
+    container.addEventListener("touchend", function(e) {
+      const currentTime = new Date().getTime();
+      const tapLength = currentTime - lastTap;
+      if (tapLength < 300 && tapLength > 0) {
+        isZoomed = !isZoomed;
+        if (!isZoomed) {
+          offsetX = 0;
+          offsetY = 0;
+        }
+        updateTransform();
+      }
+      lastTap = currentTime;
+    });
+
+    // ドラッグ開始
+    container.addEventListener("touchstart", function(e) {
+      if (!isZoomed) return;
+      isDragging = true;
+      const touch = e.touches[0];
+      startX = touch.clientX - offsetX;
+      startY = touch.cl

@@ -1,0 +1,979 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    font-weight: 400;
+}
+
+.header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ハンバーガーメニュー */
+.hamburger-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #2c3e50;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+    z-index: 999;
+    padding-top: 80px;
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 1.5rem 2rem;
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background: #f8f9fa;
+}
+
+/* 各ページのアクティブカラーは個別に設定 */
+.nav-menu a.active {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 998;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.benefits-section {
+    background: white;
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    /* margin-bottom: 2rem; */
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #27ae60;
+    font-weight: 500;
+}
+
+.benefit-items {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    border: 2px solid #27ae60;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.benefit-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #27ae60, #229954);
+    flex-shrink: 0;
+}
+
+.benefit-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.benefit-content {
+    flex: 1;
+}
+
+.benefit-content h4 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #27ae60;
+}
+
+.benefit-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+/* ヒーローセクション（index.html用） */
+.hero-section {
+    background: white;
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.08), rgba(44, 62, 80, 0.05));
+    z-index: 1;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    text-align: left;
+    padding: 2rem;
+}
+
+.hero-text {
+    padding-right: 2rem;
+}
+
+.hero-image {
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 社長メッセージ（index.html用） */
+.president-message {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    border: 2px solid #3498db;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.president-message:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.2);
+}
+
+.president-message-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #3498db;
+}
+
+.president-icon {
+    flex-shrink: 0;
+    color: #3498db;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+}
+
+.president-icon path {
+    fill: white;
+}
+
+.president-message-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+    font-weight: 600;
+    text-align: center;
+}
+
+.president-message-content {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: left;
+    min-height: 150px;
+}
+
+.president-message-content p {
+    margin-bottom: 0;
+}
+
+/* index.html固有のスタイル */
+body.index-page .category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 5%;
+    width: 90%;
+    padding-bottom: 1rem;
+    border-bottom: 4px solid #3498db;
+}
+
+body.index-page .category-icon {
+    flex-shrink: 0;
+    color: #3498db;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+}
+
+body.index-page .category-icon path {
+    fill: white;
+}
+
+body.index-page .category-title {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+body.index-page .benefit-item {
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #3498db;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 90%;
+    margin: 0 auto;
+}
+
+body.index-page .benefit-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.25);
+}
+
+body.index-page .benefit-icon-wrapper {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);
+    transition: transform 0.3s ease;
+}
+
+body.index-page .benefit-item:hover .benefit-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+body.index-page .benefit-icon-svg {
+    color: white;
+}
+
+body.index-page .benefit-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    padding-bottom: 0;
+    border-bottom: none;
+    color: #2c3e50;
+}
+
+body.index-page .benefits-section {
+    gap: 3rem;
+}
+
+.president-photo {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.president-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-text {
+        padding-right: 0;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    body.index-page .benefit-item {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    
+    body.index-page .benefit-icon-wrapper {
+        margin: 0 auto 1rem;
+    }
+    
+    body.index-page .category-header {
+        margin-left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    body.index-page .president-message-header {
+        flex-direction: column;
+    }
+
+    .president-message-content {
+        padding-right: 0;
+        min-height: auto;
+    }
+
+    .president-photo {
+        position: static;
+        margin: 2rem auto 0;
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* welfare.html固有のスタイル */
+body.welfare-page .nav-menu a.active {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: white;
+}
+
+body.welfare-page .category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 5%;
+    width: 90%;
+    padding-bottom: 1rem;
+    border-bottom: 4px solid #9b59b6;
+}
+
+body.welfare-page .category-icon {
+    flex-shrink: 0;
+    color: #9b59b6;
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(155, 89, 182, 0.3);
+}
+
+body.welfare-page .category-icon path {
+    fill: white;
+}
+
+body.welfare-page .category-title {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+body.welfare-page .benefit-icon {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+body.welfare-page .benefit-items {
+    gap: 2rem;
+}
+
+body.welfare-page .benefit-item {
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-color: #9b59b6;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+}
+
+body.welfare-page .benefit-icon-wrapper {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(155, 89, 182, 0.3);
+}
+
+body.welfare-page .benefit-icon-svg {
+    color: white;
+}
+
+body.welfare-page .benefit-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+body.welfare-page .benefit-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    padding-bottom: 0;
+    border-bottom: none;
+    text-align: left;
+}
+
+body.welfare-page .benefit-content p {
+    text-align: left;
+}
+
+body.welfare-page .benefits-section {
+    gap: 3rem;
+}
+
+body.welfare-page .section-title {
+    font-weight: 600;
+}
+
+/* positions.html固有のスタイル */
+body.positions-page .nav-menu a.active {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+}
+
+body.positions-page .category-title {
+    border-bottom-color: #f39c12;
+    border-bottom-width: 4px;
+    margin-left: 5%;
+    width: 90%;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+body.positions-page .benefit-icon {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+body.positions-page .benefit-items {
+    gap: 2rem;
+}
+
+body.positions-page .benefit-item {
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-color: #f39c12;
+}
+
+body.positions-page .benefit-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+body.positions-page .benefit-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+body.positions-page .benefit-content h4:first-child {
+    margin-top: 0;
+}
+
+body.positions-page .benefits-section {
+    gap: 1rem;
+}
+
+body.positions-page .section-title {
+    font-weight: 600;
+}
+
+body.positions-page .benefits-section > p {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+body.positions-page .benefit-content {
+    text-align: left;
+}
+
+body.positions-page .benefit-description strong {
+    display: inline-block;
+    min-width: 200px;
+}
+
+body.positions-page .description-row {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+body.positions-page .description-row:last-child {
+    border-bottom: none;
+}
+
+body.positions-page .steps-container {
+    margin-top: 1rem;
+}
+
+body.positions-page .step-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+body.positions-page .step-item:last-child {
+    margin-bottom: 0;
+}
+
+body.positions-page .step-number {
+    background: #f39c12;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+body.positions-page .step-content {
+    text-align: left;
+}
+
+body.positions-page .step-content h5 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+body.positions-page .step-content p {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+body.positions-page .step-arrow {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+body.positions-page .step-arrow svg path {
+    stroke: #f39c12;
+}
+
+body.positions-page .contact-description {
+    margin-bottom: 1rem;
+}
+
+body.positions-page .contact-table {
+    margin-top: 1rem;
+}
+
+body.positions-page .contact-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+body.positions-page .contact-table td {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+body.positions-page .contact-table .contact-label {
+    border-bottom: 1px solid #e9ecef;
+    font-weight: 500;
+    color: #2c3e50;
+    width: 30%;
+}
+
+body.positions-page .contact-table .contact-value {
+    border-bottom: 1px solid #e9ecef;
+    color: #666;
+}
+
+body.positions-page .contact-table tr:last-child .contact-label,
+body.positions-page .contact-table tr:last-child .contact-value {
+    border-bottom: none;
+}
+
+/* interview.html固有のスタイル */
+body.interview-page .nav-menu a.active {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    color: white;
+}
+
+body.interview-page .category-title {
+    border-bottom-color: #27ae60;
+}
+
+body.interview-page .benefit-item {
+    border-color: #27ae60;
+}
+
+body.interview-page .benefit-icon {
+    background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+body.interview-page .benefit-content h4 {
+    border-bottom-color: #27ae60;
+    text-align: left;
+}
+
+body.interview-page .benefit-content {
+    text-align: left;
+}
+
+body.interview-page .contact-table {
+    margin-top: 1rem;
+}
+
+body.interview-page .contact-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+body.interview-page .contact-table td {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+body.interview-page .contact-table .contact-label {
+    border-bottom: 1px solid #e9ecef;
+    font-weight: 500;
+    color: #2c3e50;
+    width: 30%;
+}
+
+body.interview-page .contact-table .contact-value {
+    border-bottom: 1px solid #e9ecef;
+    color: #666;
+}
+
+body.interview-page .contact-table tr:last-child .contact-label,
+body.interview-page .contact-table tr:last-child .contact-value {
+    border-bottom: none;
+}
+
+body.interview-page .interview-question-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    border-left: 4px solid #27ae60;
+    border-radius: 8px;
+    position: relative;
+}
+
+body.interview-page .interview-question-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #e8f5e9;
+}
+
+body.interview-page .question-icon {
+    flex-shrink: 0;
+    color: #27ae60;
+    margin-top: 2px;
+}
+
+body.interview-page .interview-question {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+body.interview-page .interview-answer-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    position: relative;
+}
+
+body.interview-page .interview-answer-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #f8f9fa;
+}
+
+body.interview-page .answer-icon {
+    flex-shrink: 0;
+    color: #27ae60;
+    margin-top: 2px;
+}
+
+body.interview-page .interview-answer {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    color: #555;
+    line-height: 1.9;
+    font-size: 0.95rem;
+}
+
+/* スマホデザイン最適化 */
+@media (max-width: 768px) {
+    body.positions-page .benefit-description strong {
+        display: block;
+        min-width: auto;
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+    }
+    
+    body.positions-page .benefit-description {
+        line-height: 1.8;
+    }
+    
+    body.positions-page .benefit-item {
+        padding: 1rem;
+    }
+    
+    body.positions-page .benefit-content h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    body.positions-page .category-title {
+        margin-left: 0;
+        width: 100%;
+        font-size: 1.3rem;
+    }
+    
+    body.positions-page .benefit-description br {
+        display: none;
+    }
+    
+    body.positions-page .benefit-description strong + * {
+        display: block;
+        margin-bottom: 0.75rem;
+    }
+}
+
