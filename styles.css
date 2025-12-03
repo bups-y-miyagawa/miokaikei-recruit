@@ -329,8 +329,8 @@ body {
 
 .president-message-header {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     gap: 1rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
