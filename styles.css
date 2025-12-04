@@ -362,8 +362,8 @@ body {
 
 .president-message-content {
     color: #666;
-    line-height: 1.8;
-    font-size: 1.1rem;
+    /* line-height: 1.8; */
+    font-size: 0.8rem;
     text-align: left;
     min-height: 150px;
 }
@@ -632,6 +632,67 @@ body.welfare-page .section-title {
     font-weight: 600;
 }
 
+/* 退職金制度BOX */
+body.welfare-page .retirement-benefit-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem auto;
+    width: 90%;
+    border: 2px solid #9b59b6;
+    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.welfare-page .retirement-benefit-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(155, 89, 182, 0.2);
+}
+
+body.welfare-page .retirement-benefit-content {
+    flex: 1;
+}
+
+body.welfare-page .retirement-benefit-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #9b59b6;
+}
+
+body.welfare-page .retirement-benefit-description {
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    body.welfare-page .retirement-benefit-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    body.welfare-page .retirement-benefit-content {
+        text-align: center;
+    }
+    
+    body.welfare-page .retirement-benefit-title {
+        font-size: 1.1rem;
+    }
+    
+    body.welfare-page .retirement-benefit-description {
+        font-size: 0.9rem;
+    }
+}
+
 /* positions.html固有のスタイル */
 body.positions-page .nav-menu a.active {
     background: linear-gradient(135deg, #f39c12, #e67e22);
@@ -706,6 +767,17 @@ body.positions-page .benefit-description strong {
 body.positions-page .description-row {
     padding: 0.5rem 0;
     border-bottom: 1px solid #e9ecef;
+}
+
+body.positions-page .description-row strong {
+    display: inline-block;
+    min-width: 120px;
+    vertical-align: top;
+}
+
+body.positions-page .office-indent {
+    display: inline-block;
+    margin-left: 120px;
 }
 
 body.positions-page .description-row:last-child {
