@@ -316,7 +316,6 @@ body {
     padding: 2.5rem;
     border-radius: 12px;
     margin-bottom: 3rem;
-    border: 2px solid #3498db;
     position: relative;
     box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
