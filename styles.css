@@ -994,14 +994,6 @@ body.interview-page .benefit-content {
     max-width: none;
 }
 
-body.interview-page .interview-intro {
-    text-align: center;
-    color: #666;
-    margin-top: 0.25rem;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-}
-
 body.interview-page .contact-table {
     margin-top: 1rem;
 }
