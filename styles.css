@@ -234,7 +234,7 @@ body {
 /* ヒーローセクション（index.html用） */
 .hero-section {
     background: white;
-    padding: 4rem 0;
+    /* padding: 4rem 0; */
     text-align: center;
     margin-bottom: 3rem;
     border-radius: 10px;
@@ -313,7 +313,7 @@ body {
 /* 社長メッセージ（index.html用） */
 .president-message {
     background: linear-gradient(135deg, #ffffff, #f8f9fa);
-    padding: 2.5rem;
+    padding: 0 0 2.5rem 2.5rem;
     border-radius: 12px;
     margin-bottom: 3rem;
     position: relative;
@@ -328,12 +328,13 @@ body {
 
 .president-message-header {
     display: flex;
-    align-items: left;
-    justify-content: left;
+    align-items: center;
+    justify-content: flex-start;
     gap: 1rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 3px solid #3498db;
+    flex-wrap: nowrap;
 }
 
 .president-icon {
@@ -380,6 +381,7 @@ body.index-page .category-header {
     width: 90%;
     padding-bottom: 1rem;
     border-bottom: 4px solid #3498db;
+    flex-wrap: nowrap;
 }
 
 body.index-page .category-icon {
@@ -510,12 +512,31 @@ body.index-page .benefits-section {
     body.index-page .category-header {
         margin-left: 0;
         width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    
+    body.index-page .category-title {
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+    
+    body.index-page .category-icon {
+        flex-shrink: 0;
     }
     
     body.index-page .president-message-header {
-        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    
+    body.index-page .president-message-title {
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+    
+    body.index-page .president-icon {
+        flex-shrink: 0;
     }
 
     .president-message-content {
@@ -774,9 +795,11 @@ body.positions-page .description-row strong {
     vertical-align: top;
 }
 
-body.positions-page .office-indent {
+body.positions-page .office-locations {
     display: inline-block;
-    margin-left: 120px;
+    font-size: 1rem;
+    color: #2c3e50;
+    font-weight: 500;
 }
 
 body.positions-page .description-row:last-child {
@@ -1016,6 +1039,29 @@ body.interview-page .interview-answer {
         display: block;
         min-width: auto;
         margin-bottom: 0.25rem;
+        font-weight: 600;
+    }
+    
+    body.positions-page .description-row strong {
+        display: block;
+        min-width: auto;
+        margin-bottom: 0.25rem;
+    }
+    
+    body.positions-page .office-locations {
+        display: block;
+        margin-top: 0.25rem;
+        font-size: 0.95rem;
+    }
+    
+    body.positions-page .description-row {
+        padding: 0.75rem 0;
+    }
+    
+    body.positions-page .description-row strong {
+        display: block;
+        min-width: auto;
+        margin-bottom: 0.5rem;
         font-weight: 600;
     }
     
