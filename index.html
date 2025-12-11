@@ -5,223 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>三尾会計で働く魅力 | 採用情報 | 三尾会計事務所</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* index.html固有の色設定とスタイル調整 */
-        .nav-menu a.active {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-        }
-        
-        .benefit-items {
-            gap: 2rem;
-        }
-        
-        .president-message {
-            width:100%;
-            margin: 0 auto;
-        }
-        
-        .header h1 {
-            text-align: center;
-        }
-        
-        .president-message-header {
-            justify-content: flex-start;
-        }
-        
-        /* メンバーグリッド（3名を横並び） */
-        .members-grid {
-            display: flex;
-            gap: 3rem;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        
-        .member-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-            max-width: 250px;
-            padding: 0 1rem;
-        }
-        
-        .member-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .member-info {
-            width: 100%;
-        }
-        
-        .member-position {
-            margin: 0 0 0.5rem 0;
-            font-size: 1rem;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-        
-        .member-qualification {
-            margin: 0 0 0.5rem 0;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .member-name {
-            margin: 0;
-            font-size: 1rem;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-        
-        @media (max-width: 768px) {
-            .members-grid {
-                gap: 1.5rem;
-            }
-            
-            .member-item {
-                min-width: 0;
-                max-width: none;
-                flex: 1;
-                padding: 0 0.5rem;
-            }
-            
-            .member-photo {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 0.5rem;
-            }
-            
-            .member-position {
-                font-size: 0.85rem;
-                margin-bottom: 0.25rem;
-            }
-            
-            .member-qualification {
-                font-size: 0.75rem;
-                margin-bottom: 0.25rem;
-            }
-            
-            .member-name {
-                font-size: 0.85rem;
-            }
-        }
-        
-        /* 2枚の写真を別々に表示してグラデーション的にぼやける */
-        .hero-images-stacked {
-            display: flex;
-            gap: 2rem;
-            width: 100%;
-            max-width: 100%;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .hero-img-wrapper {
-            position: relative;
-            display: inline-block;
-            flex: 1;
-            max-width: 48%;
-            aspect-ratio: 4 / 3;
-            overflow: visible;
-        }
-        
-        .hero-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        /* ぼかした背景画像（楕円形に切り出し、端を背景に溶け込ませる） */
-        .hero-img-blur {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            filter: blur(10px);
-            z-index: 1;
-            opacity: 0.5;
-            mask-image: radial-gradient(ellipse 95% 92% at center, 
-                rgba(0, 0, 0, 0.8) 0%,
-                rgba(0, 0, 0, 0.6) 60%,
-                rgba(0, 0, 0, 0.3) 80%,
-                rgba(0, 0, 0, 0) 100%);
-            -webkit-mask-image: radial-gradient(ellipse 95% 92% at center, 
-                rgba(0, 0, 0, 0.8) 0%,
-                rgba(0, 0, 0, 0.6) 60%,
-                rgba(0, 0, 0, 0.3) 80%,
-                rgba(0, 0, 0, 0) 100%);
-        }
-        
-        /* クリアな前景画像（楕円形に切り出し、端を背景に溶け込ませる） */
-        .hero-img-clear {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            filter: blur(0px);
-            z-index: 2;
-            mask-image: radial-gradient(ellipse 95% 92% at center, 
-                rgba(0, 0, 0, 1) 0%,
-                rgba(0, 0, 0, 1) 50%,
-                rgba(0, 0, 0, 0.9) 65%,
-                rgba(0, 0, 0, 0.6) 80%,
-                rgba(0, 0, 0, 0.2) 95%,
-                rgba(0, 0, 0, 0) 100%);
-            -webkit-mask-image: radial-gradient(ellipse 95% 92% at center, 
-                rgba(0, 0, 0, 1) 0%,
-                rgba(0, 0, 0, 1) 50%,
-                rgba(0, 0, 0, 0.9) 65%,
-                rgba(0, 0, 0, 0.6) 80%,
-                rgba(0, 0, 0, 0.2) 95%,
-                rgba(0, 0, 0, 0) 100%);
-        }
-        
-        /* 背景に溶け込むための白いグラデーションオーバーレイ（楕円形） */
-        .hero-img-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse 95% 92% at center, 
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0) 50%,
-                rgba(255, 255, 255, 0.1) 65%,
-                rgba(255, 255, 255, 0.4) 80%,
-                rgba(255, 255, 255, 0.8) 95%,
-                rgba(255, 255, 255, 1) 100%);
-            pointer-events: none;
-            z-index: 3;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-images-stacked {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            
-            .hero-img-wrapper {
-                max-width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body class="index-page">
     <div class="hamburger-menu" onclick="toggleMenu()">
@@ -244,7 +28,7 @@
     <header class="header">
         <div class="container">
             <h1>採用情報</h1>
-            <p>三尾会計事務所で一緒に働きませんか？</p>
+            <p>私たちと一緒に働きませんか？</p>
         </div>
     </header>
 
@@ -271,22 +55,22 @@
                     <h3 class="president-message-title">代表メッセージ</h3>
                 </div>
                 <div class="president-message-content">
-                    <h4 style="font-size: 1.1rem; color: #2c3e50; margin-bottom: 1rem; font-weight: 600;">お客様と"人生単位"で向き合う会計事務所</h4>
+                    <h4 class="president-message-subtitle">お客様と"人生単位"で向き合う会計事務所</h4>
                     <p>三尾会計事務所は、単なる数字の処理ではなく、人と企業の物語に寄り添う会計事務所です。</p>
                     <p>相続・事業承継・経営改善など、人生や会社の節目に立ち合い、長い時間をかけて信頼を築いています。</p>
                     <p>「税金のことだけではなく、これからの生き方を一緒に考えてくれる」―――　そう言っていただけるお客様が多いのが、私たちの誇りです。</p>
                     
-                    <h4 style="font-size: 1.1rem; color: #2c3e50; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">三尾会計事務所で身につく力は、一生ものです</h4>
+                    <h4 class="president-message-subtitle president-message-subtitle-spaced">三尾会計事務所で身につく力は、一生ものです</h4>
                     <p>私たちの仕事は「数字を扱う」ことにとどまりません。</p>
                     <p>お客様の人生や会社の未来を、共に考え、共に築くこと。</p>
                     <p>そのために、税務・会計・相続・経営の知識を総合的に使いこなします。</p>
                     <p>この現場で磨かれる力は、どんな業界に進んでも通用する"本物の思考力"と"人間力"。</p>
                     <p>三尾会計事務所で習得した技術はどんな世界に飛び込んでも引っ張りだこになります。</p>
                     
-                    <h4 style="font-size: 1.1rem; color: #2c3e50; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">幅広いフィールドで成長できる</h4>
+                    <h4 class="president-message-subtitle president-message-subtitle-spaced">幅広いフィールドで成長できる</h4>
                     <p>三尾会計事務所は、法人・個人の申告業務に加え、相続税申告、事業承継、M&A、組織再編、内部統制支援など、高度な専門性が求められる分野に長年取り組んできました。多様な領域の実務を通じて専門性を磨き、経営者の重要な意思決定を支える経験を積むことができます。</p>
                     
-                    <div class="members-grid" style="margin-top: 2rem;">
+                    <div class="members-grid members-grid-spaced">
                         <div class="member-item">
                             <div class="member-photo">
                                 <img src="img/mio.bmp" alt="三尾隆志">

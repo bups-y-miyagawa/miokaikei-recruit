@@ -1,0 +1,232 @@
+/* index.html固有の色設定とスタイル調整 */
+.nav-menu a.active {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+}
+
+.benefit-items {
+    gap: 2rem;
+}
+
+.president-message {
+    width:100%;
+    margin: 0 auto;
+}
+
+.header h1 {
+    text-align: center;
+}
+
+.president-message-header {
+    justify-content: flex-start;
+}
+
+/* 代表メッセージ内のサブタイトル */
+.president-message-subtitle {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.president-message-subtitle-spaced {
+    margin-top: 2rem;
+}
+
+/* メンバーグリッド（3名を横並び） */
+.members-grid {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.members-grid-spaced {
+    margin-top: 2rem;
+}
+
+.member-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    padding: 0 1rem;
+}
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info {
+    width: 100%;
+}
+
+.member-position {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.member-qualification {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.member-name {
+    margin: 0;
+    font-size: 1rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .members-grid {
+        gap: 1.5rem;
+    }
+    
+    .member-item {
+        min-width: 0;
+        max-width: none;
+        flex: 1;
+        padding: 0 0.5rem;
+    }
+    
+    .member-photo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .member-position {
+        font-size: 0.85rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .member-qualification {
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .member-name {
+        font-size: 0.85rem;
+    }
+}
+
+/* 2枚の写真を別々に表示してグラデーション的にぼやける */
+.hero-images-stacked {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-img-wrapper {
+    position: relative;
+    display: inline-block;
+    flex: 1;
+    max-width: 48%;
+    aspect-ratio: 4 / 3;
+    overflow: visible;
+}
+
+.hero-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ぼかした背景画像（楕円形に切り出し、端を背景に溶け込ませる） */
+.hero-img-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+    z-index: 1;
+    opacity: 0.5;
+    mask-image: radial-gradient(ellipse 95% 92% at center, 
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.6) 60%,
+        rgba(0, 0, 0, 0.3) 80%,
+        rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 92% at center, 
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.6) 60%,
+        rgba(0, 0, 0, 0.3) 80%,
+        rgba(0, 0, 0, 0) 100%);
+}
+
+/* クリアな前景画像（楕円形に切り出し、端を背景に溶け込ませる） */
+.hero-img-clear {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    filter: blur(0px);
+    z-index: 2;
+    mask-image: radial-gradient(ellipse 95% 92% at center, 
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0.9) 65%,
+        rgba(0, 0, 0, 0.6) 80%,
+        rgba(0, 0, 0, 0.2) 95%,
+        rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 92% at center, 
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0.9) 65%,
+        rgba(0, 0, 0, 0.6) 80%,
+        rgba(0, 0, 0, 0.2) 95%,
+        rgba(0, 0, 0, 0) 100%);
+}
+
+/* 背景に溶け込むための白いグラデーションオーバーレイ（楕円形） */
+.hero-img-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse 95% 92% at center, 
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.1) 65%,
+        rgba(255, 255, 255, 0.4) 80%,
+        rgba(255, 255, 255, 0.8) 95%,
+        rgba(255, 255, 255, 1) 100%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+@media (max-width: 768px) {
+    .hero-images-stacked {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .hero-img-wrapper {
+        max-width: 100%;
+    }
+}
+
